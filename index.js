@@ -1,7 +1,9 @@
 "use strict";
 const childProc = require("child_process");
-const CHILD_PROCESSES = 20;
-const URL = 'https://www.google.com/';
+const dotenv = require('dotenv');
+dotenv.config();
+
+const CHILD_PROCESSES = 200;
 
 (async () => {
   let times = [];

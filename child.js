@@ -20,7 +20,11 @@ const argv = require('minimist')(process.argv.slice(2));
     return Promise.reject(error);
   });
 
-  axios.get(argv.url)
+  axios.get(process.env.URL,{
+	headers: {
+		'Authorization': `Bearer ${process.env.COGNITO}`
+	}
+  })
   .then((response) => {
     process.stdout.write(response.duration.toString());
     process.exitCode = 0;
